@@ -1,5 +1,7 @@
 package com.edwin.hiberanate.HibernateTask;
 
+import java.util.List;
+
 import com.edwin.hiberanate.HibernateTask.entity.Product;
 
 public class MenuFunctions {
@@ -49,6 +51,19 @@ public class MenuFunctions {
 		}
 		System.out.println("The Following Product is getting deleted: \n"+newP);
 		CRUDProduct.deleteProduct(newPid);
+		
+	}
+	
+	void readAllProduct() {
+		List<Product> listOfProducts = CRUDProduct.getAllProduct();
+		if(listOfProducts==null) {
+			System.out.println("No Products");
+			return;
+		}
+		System.out.println("There are Following Products");
+		for(Product p:listOfProducts) {
+			System.out.println(p);
+		}
 		
 	}
 

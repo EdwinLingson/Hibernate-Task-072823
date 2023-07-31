@@ -1,6 +1,9 @@
 package com.edwin.hiberanate.HibernateTask;
 
+import java.util.List;
+
 import org.hibernate.Session;
+import org.hibernate.query.Query;
 
 import com.edwin.hiberanate.HibernateTask.entity.Product;
 
@@ -33,5 +36,11 @@ public class CRUDProduct {
 		session.beginTransaction();
 		session.delete(readProdcuct(pId));
 		session.getTransaction().commit();
+	}
+	static List getAllProduct()
+	{
+		Query q = session.createQuery("From Product");
+		List<Product> res = q.list();
+		return res;
 	}
 }
